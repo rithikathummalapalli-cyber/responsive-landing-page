@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Landing Page | SkillCraft Technology</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0f0f1a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      z-index: 1000;
+      transition: background 0.4s, box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      background: #111827;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00bcd4;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      padding-bottom: 3px;
+    }
+
+    .nav-links li a:hover {
+      color: #00bcd4;
+      border-bottom: 2px solid #00bcd4;
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        flex-direction: column;
+        background: #111827;
+        width: 200px;
+        height: 0;
+        overflow: hidden;
+        text-align: right;
+        transition: height 0.3s ease;
+        border-radius: 0 0 8px 8px;
+      }
+
+      .nav-links.open {
+        height: 220px;
+        padding: 10px 0;
+      }
+
+      .nav-links li {
+        margin: 10px 20px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* HERO SECTION */
+    .home {
+      height: 100vh;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .home h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #00bcd4;
+      animation: fadeInDown 1.2s ease-in-out;
+    }
+
+    .home p {
+      font-size: 1.2rem;
+      color: #ddd;
+      max-width: 600px;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #00bcd4;
+      color: #fff;
+      padding: 12px 25px;
+      margin-top: 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0288d1;
+    }
+
+    /* SECTION BASE */
+    .section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #00bcd4;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: #ccc;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .section img {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .section img:hover {
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111827;
+      color: #aaa;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="logo">SkillCraft</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  </nav>
+
+  <!-- HOME SECTION -->
+  <section id="home" class="home">
+    <h1>Welcome to SkillCraft Technology</h1>
+    <p>Building future-ready web developers 🚀 with hands-on projects and interactive learning.</p>
+    <a href="#about" class="btn">Explore More</a>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>We at SkillCraft Technology empower students through real-time tasks, workshops, and web development challenges that strengthen practical coding skills.</p>
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="About Us">
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="section">
+    <h2>Our Services</h2>
+    <p>We provide comprehensive training programs in Frontend, Backend, and Full Stack Web Development with career guidance and placement support.</p>
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=600&q=80" alt="Services">
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: info@skillcrafttech.com<br>Phone: +91 98765 43210</p>
+    <img src="https://images.unsplash.com/photo-1581093588401-22db0b5c2e6d?auto=format&fit=crop&w=600&q=80" alt="Contact">
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 SkillCraft Technology. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    // Change navbar color on scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Toggle mobile menu
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
